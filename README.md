@@ -9,9 +9,9 @@ This repository contains code for a grid-based robot navigation simulation built
 * Running the Simulation
 
 * Lab Versions
-> Lab 3(a): Basic Navigation
-> Lab 3(b): Enhanced Pathfinding
-> Lab 3(c): Nearest Task Selection
+* > Lab 3(a): Basic Navigation
+* > Lab 3(b): Enhanced Pathfinding
+* > Lab 3(c): Nearest Task Selection
 * Code Structure
 * Features
 * Additional Notes

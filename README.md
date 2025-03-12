@@ -1,135 +1,79 @@
-# Lab 3: Grid-Based Robot Navigation Simulation
+# Lab 3(c): Grid-Based Robot Navigation with Multiple Search Algorithms
 
-This repository contains code for a grid-based robot navigation simulation built using Python and Pygame. The simulation evolves through three versions (Lab 3(a), Lab 3(b), and Lab 3(c)) with each version introducing new functionality.
+## Introduction
 
-# Table of Contents
+This repository is a fork of the original Lab 3: Grid-Based Robot Navigation Simulation. I forked this repository to complete my lab task, focusing solely on the third version (Lab 3(c)). My goal was to experiment with different search algorithms for pathfinding in a grid-based environment.
 
-* Introduction
-* Setup
-* Running the Simulation
+The agent (robot) navigates a grid, selecting the nearest task while avoiding barriers. I have implemented and tested the following search algorithms:
 
-* Lab Versions
-* > Lab 3(a): Basic Navigation
-* > Lab 3(b): Enhanced Pathfinding
-* > Lab 3(c): Nearest Task Selection
-* Code Structure
-* Features
-* Additional Notes
+- **Breadth-First Search (BFS)**
+- **Depth-First Search (DFS)**
+- **A* Search (A*)**
+- **Iterative Deepening A* (IDA*)**
+- **Uniform Cost Search (UCS)**
 
-# Introduction
-This lab explores basic principles of autonomous navigation using an agent-based model. The agent (robot) navigates a grid to reach tasks while avoiding barriers, implementing pathfinding techniques such as BFS and nearest task selection. Through progressive versions, the lab demonstrates key concepts in simulation, pathfinding, and interactive programming.
+## Setup
 
-# Setup
+### Requirements
 
-* Requirements
-* Python 3.6 or later
-* Pygame library
+- Python 3.6 or later
+- Pygame library
 
-# Installation
+### Installation
 
 Clone this repository to your local machine:
 
-``git clone https://github.com/yourusername/lab3-grid-simulation.git``
+```sh
+git clone https://github.com/yourusername/lab3c-search-algorithms.git
+```
 
 Navigate to the repository:
 
-``cd lab3-grid-simulation``
+```sh
+cd lab3c-search-algorithms
+```
 
 Install Pygame if it's not already installed:
 
-``pip install pygame``
+```sh
+pip install pygame
+```
 
-# Running the Simulation
+## Running the Simulation
 
-Each version of the lab (Lab 3(a), Lab 3(b), Lab 3(c)) contains its own run.py file. Run each version independently to see the functionality evolve.
+Run the simulation using:
 
-To Run a Version:
+```sh
+python run.py
+```
 
-Navigate to the desired lab version directory (e.g., simulation_grid_lab_3(a)).
+A Pygame window will open, displaying the grid, agent, tasks, and barriers. The agent dynamically selects the nearest task and navigates using the chosen search algorithm.
 
-Execute the run.py script:
+## Search Algorithms Implemented
 
-``python run.py``
+- **BFS (Breadth-First Search):** Explores all nodes at the present depth level before moving to the next level.
+- **DFS (Depth-First Search):** Explores as far as possible along each branch before backtracking.
+- **A* Search (A*):** Uses a heuristic function to optimize pathfinding by estimating the cost to reach the goal.
+- **UCS (Uniform Cost Search):** Expands the least-cost node, ensuring optimal paths in weighted graphs.
+- **IDA* (Iterative Deepening A*):** Combines depth-first search with A\* heuristics for memory-efficient pathfinding.
 
-A Pygame window will open, displaying the grid, agent, tasks, and barriers.
+## Code Structure
 
-# Lab Versions
+- `agent.py`: Defines the Agent class, including movement and pathfinding logic.
+- `environment.py`: Manages the grid setup, task placement, barriers, and utility functions.
+- `run.py`: The main script initializing the simulation and handling user interactions.
 
-## Lab 3(a): Basic Navigation
+## Features
 
-**Description:** In this version, the agent navigates to complete tasks by following the Breadth-First Search (BFS) algorithm. The environment includes randomly placed barriers, which the agent avoids while navigating.
+- **Nearest-task selection:** The agent dynamically selects the closest task for efficiency.
+- **Multiple search algorithms:** Easily switch between different pathfinding strategies.
+- **Real-time visualization:** Observe the agent’s decision-making process live.
 
-### Features:
+## Additional Notes
 
-* Basic BFS-based pathfinding.
-* Simple user interface with a start button to initiate the simulation.
+- You can modify parameters (e.g., `num_tasks`, `num_barriers`) in `run.py` to test different configurations.
+- Future enhancements could include additional heuristics, multi-agent navigation, or dynamic obstacle avoidance.
 
-### Usage:
+---
 
-* Run run.py in simulation_grid_lab_3(a) directory.
-* The agent moves to the designated tasks and avoids barriers.
-
-## Lab 3(b): Enhanced Pathfinding
-
-**Description:** This version builds on the basic navigation by adding additional visualization and control elements. It further optimizes pathfinding for larger grids, making the simulation more interactive and efficient.
-
-### Features:
-
-* Improved pathfinding with optimizations for performance.
-* Enhanced UI with status updates for the agent’s position and tasks completed.
-
-### Usage:
-
-* Run run.py in simulation_grid_lab_3(b) directory.
-* Observe the optimized pathfinding and user interface updates as the agent completes tasks.
-
-## Lab 3(c): Nearest Task Selection
-**Description:** In this final version, the agent intelligently selects the nearest task using BFS-based shortest path computation. This allows for faster task completion, as the agent always moves toward the closest task available.
-
-### Features:
-
-* Nearest-task pathfinding using BFS.
-* Enhanced agent behavior to dynamically choose the nearest task.
-
-### Usage:
-
-* Run run.py in simulation_grid_lab_3(c) directory.
-* The agent dynamically recalculates paths to the closest task, demonstrating efficient task completion.
-
-# Code Structure
-
-Each version of the lab contains the following main files:
-
-* **agent.py:** Defines the Agent class. This class handles the agent’s properties and behaviors, including movement and pathfinding.
-* **environment.py:** Defines the Environment class. This class manages the grid setup, task and barrier placement, and utility functions for boundary checking.
-* **run.py:** The main script for each version. It initializes the Pygame window, environment, and agent, and handles user inputs and display rendering.
-
-# Features
-General Features
-
-* **Grid Navigation:** The agent moves within a grid to reach designated task locations.
-* **Pathfinding:** The agent navigates using Breadth-First Search and nearest-task selection to demonstrate different pathfinding strategies.
-* **Dynamic Visualization:** Tasks, barriers, and agent movement are visualized on the grid, with real-time updates in each simulation.
-
-# Specific Features by Version
-
-## Lab 3(a):
-* BFS-based pathfinding
-* Basic user interface with a start button
-
-## Lab 3(b):
-* Optimized pathfinding
-* Enhanced status panel with task completion updates
-
-## Lab 3(c):
-* Nearest-task selection for efficient navigation
-* Real-time dynamic updates for nearest task selection
-
-# Additional Notes
-* **Adjusting Parameters:** In each run.py, you can modify parameters such as num_tasks and num_barriers in the environment setup to see how the agent responds to different configurations.
-* **Troubleshooting:** If Pygame doesn’t start, ensure it is installed in the correct Python environment, and verify all file paths.
-
-# Potential Extensions:
-* Experiment with A* search algorithm for more advanced pathfinding.
-* Add more agents to observe multi-agent interactions.
-* Implement dynamic environments with moving barriers or randomly appearing/disappearing tasks.
+This project helped me explore various search algorithms for pathfinding and analyze their efficiency in a grid-based navigation system.

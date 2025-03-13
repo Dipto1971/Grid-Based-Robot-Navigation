@@ -7,7 +7,7 @@ from environment import Environment
 # Constants
 WINDOW_WIDTH, WINDOW_HEIGHT = 800, 600
 GRID_SIZE = 40
-STATUS_WIDTH = 200
+STATUS_WIDTH = 300
 BACKGROUND_COLOR = (255, 255, 255)
 BARRIER_COLOR = (0, 0, 0)       # Barrier color is black
 TASK_COLOR = (255, 0, 0)        # Task color is red
@@ -100,7 +100,7 @@ def main():
         algorithm_surface = font.render(algorithm_text, True, TEXT_COLOR)
         
         screen.blit(task_status_surface, (status_x, 20))
-        screen.blit(position_surface, (status_x, 50))
+        screen.blit(position_surface, (status_x, 60))
         screen.blit(completed_tasks_surface, (status_x, 80))
         screen.blit(algorithm_surface, (status_x, 110))
 

@@ -86,19 +86,24 @@ def main():
 
         # Draw agent
         all_sprites.draw(screen)
-
+        
         # Display status panel
         status_x = WINDOW_WIDTH + 10
         task_status_text = f"Tasks Completed: {agent.task_completed}"
         position_text = f"Position: {agent.position}"
         completed_tasks_text = f"Completed Tasks: {agent.completed_tasks}"
-        status_surface = font.render(task_status_text, True, TEXT_COLOR)
+        algorithm_text = f"Algorithm: {agent.algorithm_name}"  # New line to show algorithm
+        
+        task_status_surface = font.render(task_status_text, True, TEXT_COLOR)
         position_surface = font.render(position_text, True, TEXT_COLOR)
         completed_tasks_surface = font.render(completed_tasks_text, True, TEXT_COLOR)
-
-        screen.blit(status_surface, (status_x, 20))
+        algorithm_surface = font.render(algorithm_text, True, TEXT_COLOR)
+        
+        screen.blit(task_status_surface, (status_x, 20))
         screen.blit(position_surface, (status_x, 50))
         screen.blit(completed_tasks_surface, (status_x, 80))
+        screen.blit(algorithm_surface, (status_x, 110))
+
 
         # Draw the start button if simulation hasn't started
         if not simulation_started:
